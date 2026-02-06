@@ -12,6 +12,27 @@ pnpm dev
 bun dev
 ```
 
+##Git flow
+Preparar arquivos modificados: 
+```bash
+git add .
+```
+Commitar:
+```bash
+git commit -m "titulo do commit"
+```
+Subir commit:
+```bash
+git commit -m "titulo do commit"
+```
+
+Realizar PULL REQUEST
+
+Atualizar branch apos subidas de codigos de terceiros > atualizar brand de desenvolvimento partir da MASTER:
+```bash
+git pull origin master
+```
+
 # ncnsports-web
 O Nada Com Nada Sports (NCNSPORTS) é uma plataforma que reúne informações de transmissões esportivas em um só lugar.
 
