@@ -7,13 +7,11 @@ export const ScheduleMenu = styled.div`
     width: 100%;
     height: 100%;
     padding-bottom: 2px;
-    border-top: 1px solid var(--color-hover);
-    border-bottom: 1px solid var(--color-hover);
     background-color: var(--color-bg);
 
     > span {
         width: auto;
-        text-wrap: nowrap;
+        white-space: nowrap;
         padding: 6px 25px;
         margin: 0px 4px 0px 0px;
         text-align: end;
