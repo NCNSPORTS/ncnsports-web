@@ -1,21 +1,25 @@
 "use client";
-import React from 'react';
-import Title from './components/home/Title';
 
-const Page = () => {
+import { Main } from "next/document";
+import { Container } from "./home/components/Container";
+import { Header } from "./home/components/Header";
+import { Navbar } from "./home/components/Navbar";
+
+export function Page() {
+
   return (
     <>
-      <Title>
-        <ul>
-          <li className="li">Welcome to NCN Sports!</li>
-          <li className="li">Your hub for all sports news.</li>
-          <li className="li">Stay tuned for updates.</li>
-        </ul>
-
-        <div className='divdoidona'>asdf</div>
-      </Title>
+      <Container>
+        <Header></Header>
+        <Navbar></Navbar>
+        <Main>
+          <Ads/>
+          <div>
+            <Card/>
+          </div>
+          <Ads/>
+        </Main>
+      </Container>
     </>
   );
 }
-
-export default Page;
