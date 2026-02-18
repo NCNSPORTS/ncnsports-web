@@ -6,8 +6,14 @@ export const Navbar = styled.div`
     height: 100%;
     border-top: 1px solid var(--color-hover);
     > a {
-     margin: 0 10px;
-     padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        margin: 0 18px;
+        padding: 10px 15px;
+        :hover {
+            opacity: 70%;
+        }
      }
 `;
 

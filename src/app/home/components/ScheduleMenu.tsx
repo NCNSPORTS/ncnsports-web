@@ -4,6 +4,7 @@ export const ScheduleMenu = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 500;
     width: 100%;
     height: 100%;
     padding-bottom: 2px;
