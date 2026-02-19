@@ -4,7 +4,6 @@ export const Navbar = styled.div`
     display: flex;
     width: 100%;
     height: 100%;
-    border-top: 1px solid var(--color-hover);
     > a {
         display: flex;
         align-items: center;

@@ -12,6 +12,7 @@ import { Card } from "./home/components/Card";
 import { ScheduleMenu, ScheduleMenuButton } from "./home/components/ScheduleMenu";
 import { Main } from "./home/components/Main";
 import Image from "next/image";
+import { Divider } from "./common/components/Divider";
 
 export default function Page() {
 
@@ -22,6 +23,7 @@ export default function Page() {
            <Image className="mx-10 my-5" src={Logo} alt="Logo" width={220} />
         </Header>
         <Main>
+          <Divider />
           <Navbar>
             <a href="/">
               Explorar
@@ -35,6 +37,7 @@ export default function Page() {
               NFL
             </a>
           </Navbar>
+          <Divider />
           <ScheduleMenu>
             <div></div>
             <div>
@@ -44,6 +47,7 @@ export default function Page() {
             </div>
             <span>Filtros avançados</span>
           </ScheduleMenu>
+          <Divider/>
           <div>
             <Ads />
             <div>
