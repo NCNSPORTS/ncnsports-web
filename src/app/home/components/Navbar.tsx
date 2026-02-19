@@ -5,8 +5,14 @@ export const Navbar = styled.div`
     width: 100%;
     height: 100%;
     > a {
-     margin: 0 10px;
-     padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        margin: 0 18px;
+        padding: 10px 15px;
+        :hover {
+            opacity: 70%;
+        }
      }
 `;
 
