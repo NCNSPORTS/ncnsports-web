@@ -19,43 +19,6 @@ export default function Nfl() {
 
       const games = gamesJsonNfl as CardGameNflProp[];
       
-      const parseFormatedDateUtc = (dateUtc: string) => new Date(dateUtc.replace(" ", "T"));
-    
-      const lastWordTeamLogos = (teamName: string) => {
-        const parts = teamName.trim().split(/\s+/);
-        return parts[parts.length - 1].toLowerCase();
-      };
-    
-      const teamLogoSrc = (teamName: string) => {
-        const file = `${lastWordTeamLogos(teamName)}TeamLogo.png`;
-        const src = `/images/nbaTeamsLogo/${file}`;
-        return src;
-      };
-    
-      const getWeekRange = () => {
-        const now = new Date();
-        const dayOfWeek = now.getDay();
-        const startOfWeek = new Date(now);
-        startOfWeek.setDate(now.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1));
-        startOfWeek.setHours(0, 0, 0, 0);
-        
-        const endOfWeek = new Date(startOfWeek);
-        endOfWeek.setDate(startOfWeek.getDate() + 6);
-        endOfWeek.setHours(23, 59, 59, 999);
-        
-        return { startOfWeek, endOfWeek };
-      };
-    
-      const { startOfWeek, endOfWeek } = getWeekRange();
-    
-      const weekGames = games
-        .filter((g) => {
-          const d = parseFormatedDateUtc(g.DateUtc);
-          return d >= startOfWeek && d <= endOfWeek;
-        })
-        .sort((a, b) => +parseFormatedDateUtc(a.DateUtc) - +parseFormatedDateUtc(b.DateUtc));
-    
-
     return (
         <>
             <Container>
@@ -89,18 +52,18 @@ export default function Nfl() {
                     <ContentArea>
                         <Ads />
                         <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(2, 1fr)" }}>
-                            {weekGames.map((g) => (
+                            {games.map((g) => (
                                 <Card
-                                    key={`${g.DateUtc}-${g.HomeTeam}-${g.AwayTeam}`}
-                                    dateUtc={g.DateUtc}
-                                    location={g.Location}
-                                    broadcast={g.Broadcast}
-                                    homeTeam={g.HomeTeam}
-                                    awayTeam={g.AwayTeam}
-                                    homeTeamScore={parseInt(g.HomeTeamScore)}
-                                    awayTeamScore={parseInt(g.AwayTeamScore)}
-                                    homeTeamLogoSrc={teamLogoSrc(g.HomeTeam)}
-                                    awayTeamLogoSrc={teamLogoSrc(g.AwayTeam)}
+                                    key={`${g.dateUtc}-${g.homeTeam}-${g.awayTeam}`}
+                                    dateUtc={g.dateUtc}
+                                    location={"-"}
+                                    broadcast={g.broadcast}
+                                    homeTeam={g.homeTeam}
+                                    awayTeam={g.awayTeam}
+                                    homeTeamScore={g.homeTeamScore}
+                                    awayTeamScore={g.awayTeamScore}
+                                    homeTeamLogoSrc={""/**teamLogoSrc(g.homeTeam)**/}
+                                    awayTeamLogoSrc={""/**teamLogoSrc(g.awayTeam)**/}
                                 />
                             ))}
                         </div>
