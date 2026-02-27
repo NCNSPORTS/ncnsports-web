@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import styled from 'styled-components';
-
 export type CardProps = {
   dateUtc: string;
   location: string;
@@ -14,6 +13,72 @@ export type CardProps = {
   homeTeamLogoSrc: string;
   awayTeamLogoSrc: string;
 };
+
+export type CardGameNbaProp = {
+  DateUtc: string;
+  Location: string;
+  HomeTeam: string;
+  AwayTeam: string;
+  HomeTeamScore: number | null;
+  AwayTeamScore: number | null;
+  Broadcast: string;
+};
+
+export type NflGameRow = {
+  Date: string;
+  Time: string;
+  "Away Team": string;
+  Away: string;
+
+  "Home Team": string;
+  Home: string;
+
+  "Away Score": string;
+  "Home Score": string;
+
+  Qtr: string;
+  Clock: string;
+  Situation: string;
+  Status: string;
+  Score: string;
+  "Total Points": string;
+
+  "Game Id": string;
+  "O/U": string;
+  Odds: string;
+  "Favored Team": string;
+  Spread: string;
+  "Fav Covered": string;
+
+  "Box Score Home": string;
+  "Box Score Away": string;
+
+  "Home Display Name": string;
+  "Away Display Name": string;
+
+  "Game Winner": string;
+  "Game Loser": string;
+
+  Over: string;
+  Under: string;
+
+  Broadcast: string;
+  "Home Off Yds": string;
+  "Away Off Yds": string;
+
+  /** campo dinâmico tipo "Sun 10:47 PM" */
+  [dynamicLabel: string]: string;
+};
+
+export type CardGameNflProp = {
+  dateUtc: string;      // ISO string
+  broadcast: string;
+  homeTeam: string;
+  awayTeam: string;
+  homeTeamScore: number;
+  awayTeamScore: number;
+};
+
 
 function parseFormatedDateUtc(dateUtc: string) {
   return new Date(dateUtc.replace(' ', 'T'));
@@ -34,7 +99,7 @@ export default function Card(props: CardProps) {
         <TeamRow>
           <Left>
             <Logo>
-              <Image src={props.awayTeamLogoSrc} alt={props.awayTeam} fill sizes="22px"/>
+              <Image src={props.awayTeamLogoSrc} alt={props.awayTeam} fill sizes="22px" />
             </Logo>
             <TeamName title={props.awayTeam}>{props.awayTeam}</TeamName>
           </Left>

@@ -4,31 +4,21 @@ import Logo from "../../public/images/LogoText.png";
 import LogoNba from "../../public/images/LogoNba.png";
 import LogoNfl from "../../public/images/LogoNfl.png";
 
-import { Container } from "./home/components/Container";
-import { Header } from "./home/components/Header";
-import { Navbar } from "./home/components/Navbar";
 import { Ads } from "./home/components/Ads";
-import { ScheduleMenu, ScheduleMenuButton } from "./home/components/ScheduleMenu";
 import { Main } from "./home/components/Main";
 import Image from "next/image";
 import { Divider } from "./common/components/Divider";
-import Card from "./common/components/Card";
+import Card, { CardGameNbaProp } from "./common/components/Card";
 
 import gamesJson from "./api/api.json";
 import { ContentArea } from "./home/ContentArea";
-
-type CardGameProp = {
-  DateUtc: string;
-  Location: string;
-  HomeTeam: string;
-  AwayTeam: string;
-  HomeTeamScore: number | null;
-  AwayTeamScore: number | null;
-  Broadcast: string;
-};
+import { Container } from "./common/components/Container";
+import { Header } from "./common/components/Header";
+import { Navbar } from "./common/components/Navbar";
+import { ScheduleMenu, ScheduleMenuButton } from "./common/components/ScheduleMenu";
 
 export default function Page() {
-  const games = gamesJson as CardGameProp[];
+  const games = gamesJson as CardGameNbaProp[];
   
   const parseFormatedDateUtc = (dateUtc: string) => new Date(dateUtc.replace(" ", "T"));
 
@@ -80,7 +70,7 @@ export default function Page() {
               <Image className="mr-2" src={LogoNba} alt="NBA Logo" width={17} />
               NBA
             </a>
-            <a href="">
+            <a href="/nfl">
               <Image className="mr-2" src={LogoNfl} alt="NFL Logo" width={30} />
               NFL
             </a>
